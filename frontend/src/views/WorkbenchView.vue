@@ -60,6 +60,14 @@
             >
               {{ action }}
             </button>
+            <RouterLink
+              v-if="meta.key === 'gateway_mgmt'"
+              class="link"
+              :data-testid="`redelivery-${row.id}`"
+              :to="`/gateway_redelivery?gateway=${encodeURIComponent(String(row['网关编号'] ?? ''))}`"
+            >
+              重连补投
+            </RouterLink>
           </td>
         </tr>
         <tr v-if="!rows.length">
